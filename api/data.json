@@ -1,0 +1,9 @@
+[
+	{"id":"14","job_title":"Android Developer","frequency":"daily","last_jobrun":"12:50","next_date":"12:60","amount_dynos":"123"},
+	{"id":"15","job_title":"IOS Developer","frequency":"hourly","last_jobrun":"12:50","next_date":"12:60","amount_dynos":"124"},
+	{"id":"16","job_title":"PHP Developer","frequency":"hourly","last_jobrun":"12:50","next_date":"12:60","amount_dynos":"126"},
+	{"id":"17","job_title":"Java Developer","frequency":"daily","last_jobrun":"12:50","next_date":"12:60","amount_dynos":"222"},
+	{"id":"27","job_title":"D# Developer","frequency":"daily","last_jobrun":"12:50","next_date":"12:60","amount_dynos":"128"},
+	{"id":"31","job_title":"C++ Developer","frequency":"daily","last_jobrun":"12:50","next_date":"12:60","amount_dynos":"223"},
+	{"id":"34","job_title":"App Developer","frequency":"daily","last_jobrun":"12:50","next_date":"12:60","amount_dynos":"323"}
+]

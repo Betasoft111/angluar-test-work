@@ -1,0 +1,151 @@
+<div class="container">
+	<h3>Jobs Listing</h3>
+	
+	<button ng-click="openModal()" type="button" class="btn btn-info btn-lg fRight" data-toggle="modal" data-target="#myModal">Add New Job</button>
+  <input type="search" ng-model="q" placeholder="filter Jobs..." aria-label="filter users" class="form-control" /><br>
+<table class="table" ng-init="loadUsers()">
+ <tr>
+   <th width="5%">S.No.</th>
+   <th width="20%">Job Title</th>
+   <th width="12%">Amount of Dynos</th>
+   
+   <th width="16%">Frequency</th>
+   <th width="13%">Last Run</th>
+   <th width="12%">Next Due</th>
+   
+   
+   <th width="16%">Action</th>
+ </tr>
+ <tr ng-repeat="job in jobs | filter:q">
+    <td>{{ $index +1 }}</td>
+    <td>{{ job.job_title }}</td>
+	 <td>{{ job.amount_dynos }}</td>
+	
+    <td>{{ job.frequency }}</td>
+    <td>{{ job.last_jobrun }}</td>
+	<td>{{ job.next_date }}</td>
+   
+	
+    <td><a href="javascript:void(0)" data-toggle="modal" data-target="#myEditModal" class="btn btn-default" ng-click="editJob(job)">Edit</a>&nbsp;<a href="javascript:void(0)"class="btn btn-default" ng-click="deleteJob(job)">Delete</a></td>
+ </tr>
+</table>
+
+  
+
+</div>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{ modalTitle }}</h4>
+      </div>
+      <div class="modal-body">
+        <form name="myForm" novalidate id="myFormTest">
+				<div class="form-group aa">
+				  <label>Job Title</label>
+				  <input type="text" name="job_title" ng-model="newJob.job_title" class="form-control" required>
+				  <span style="color:red" ng-show="myForm.job_title.$dirty && myForm.job_title.$invalid">
+					<span ng-show="myForm.job_title.$error.required">Job title is required.</span>
+				  </span>
+				</div>
+				<div class="form-group bb">
+				  <label>Amount Of Dynos</label>
+				  <input type="text" name="amount_dynos" ng-model="newJob.amount_dynos" class="form-control" required>
+				  <span style="color:red" ng-show="myForm.amount_dynos.$dirty && myForm.amount_dynos.$invalid">
+					<span ng-show="myForm.amount_dynos.$error.required">Field is required.</span>
+				  </span>
+				</div>
+				<div class="form-group">
+				  <label>Frequency</label>
+				  <!--<input type="text" name="frequency" ng-model="newJob.frequency" class="form-control" required/>-->
+				  <select name="frequency" ng-model="newJob.frequency" class="form-control" required>
+				      <option value="hourly">Hourly</option>
+					   <option value="daily">Daily</option>
+				  </select>
+				  <span style="color:red" ng-show="myForm.frequency.$dirty && myForm.frequency.$invalid">
+					<span ng-show="myForm.frequency.$error.required">Field is required.</span>
+				  </span>
+				</div>
+				<div class="form-group">
+				  <label>Last Run</label>
+				  <input type="text" name="last_jobrun" ng-model="newJob.last_jobrun" class="form-control" required>
+				  <span style="color:red" ng-show="myForm.last_jobrun.$dirty && myForm.last_jobrun.$invalid">
+					<span ng-show="myForm.last_jobrun.$error.required">Field is required.</span>
+				  </span>
+				</div>
+				<div class="form-group">
+				  <label>Next Due</label>
+				  <input type="text" name="next_date" ng-model="newJob.next_date" class="form-control" required>
+				  <span style="color:red" ng-show="myForm.next_date.$dirty && myForm.next_date.$invalid">
+					<span ng-show="myForm.next_date.$error.required">Field is required.</span>
+				  </span>
+				</div>
+				<button type="submit"  class="btn btn-primary" data-dismiss="modal"  ng-click="addJob()" ng-disabled="!myForm.$valid">Submit</button>
+		</form>
+      </div>
+	</div>
+
+  </div>
+</div>
+
+<div id="myEditModal" class="modal fade" role="dialog" ng-hide="hideEditForm">
+  <div class="modal-dialog modal-sm">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{ modalTitle }}</h4>
+      </div>
+      <div class="modal-body">
+        <form name="myEditForm" novalidate id="myEditFormTest">
+				<div class="form-group">
+				  <label>Job Title</label>
+				  <input type="text" name="job_title" ng-model="newEditJob.job_title" class="form-control" required>
+				  <span style="color:red" ng-show="myEditForm.job_title.$dirty && myEditForm.job_title.$invalid">
+					<span ng-show="myEditForm.job_title.$error.required">Job Title is required.</span>
+				  </span>
+				</div>
+				<div class="form-group">
+				  <label>Amount Of Dynos</label>
+				  <input type="text" name="amount_dynos" ng-model="newEditJob.amount_dynos" class="form-control" required>
+				  <span style="color:red" ng-show="myEditForm.amount_dynos.$dirty && myEditForm.amount_dynos.$invalid">
+					<span ng-show="myEditForm.amount_dynos.$error.required">Job Title is required.</span>
+				  </span>
+				</div>
+				<div class="form-group">
+				  <label>Frequency</label>
+				  <!--<input type="text" name="frequency" ng-model="newJob.frequency" class="form-control" required/>-->
+				  <select name="frequency" ng-model="newEditJob.frequency" class="form-control" required>
+				      <option value="hourly">Hourly</option>
+					   <option value="daily">Daily</option>
+				  </select>
+				  <span style="color:red" ng-show="myEditForm.frequency.$dirty && myEditForm.frequency.$invalid">
+					<span ng-show="myEditForm.frequency.$error.required">Field is required.</span>
+				  </span>
+				</div>
+				<div class="form-group">
+				  <label>Last Run</label>
+				  <input type="text" name="last_jobrun" ng-model="newEditJob.last_jobrun" class="form-control" required>
+				  <span style="color:red" ng-show="myEditForm.last_jobrun.$dirty && myEditForm.last_jobrun.$invalid">
+					<span ng-show="myEditForm.last_jobrun.$error.required">Field is required.</span>
+				  </span>
+				</div>
+				<div class="form-group">
+				  <label>Next Due</label>
+				  <input type="text" name="next_date" ng-model="newEditJob.next_date" class="form-control" required>
+				  <span style="color:red" ng-show="myEditForm.next_date.$dirty && myEditForm.next_date.$invalid">
+					<span ng-show="myEditForm.next_date.$error.required">Field is required.</span>
+				  </span>
+				</div>
+				<button type="submit"  class="btn btn-primary" data-dismiss="modal"  ng-click="editJob()" ng-disabled="!myEditForm.$valid">Submit</button>
+		</form>
+      </div>
+	</div>
+
+  </div>
+</div>

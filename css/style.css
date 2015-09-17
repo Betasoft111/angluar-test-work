@@ -1,0 +1,194 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-family: 'latolight';
+    src: url('lato-lig-webfont.eot');
+    src: url('lato-lig-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lato-lig-webfont.woff') format('woff'),
+         url('lato-lig-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+*
+{
+	margin:0;
+	padding:0;	
+}
+ul,li
+{
+	list-style:none;
+}
+.logo
+{
+	float:left;
+	width:auto;
+	font-size:32px;
+}
+.navbar-wrapper
+{
+    left: 0;
+    margin-bottom: -90px;
+    margin-top: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+
+.marketing .span4 
+{
+    text-align: center;
+}
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+
+
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  margin-top: 20px;
+  margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+}
+.navbar-wrapper .navbar {
+
+}
+
+/* Remove border and change up box shadow for more contrast */
+.navbar .navbar-inner {
+  border: 0;
+  -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+	 -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+		  box-shadow: 0 2px 10px rgba(0,0,0,.25);
+}
+
+/* Downsize the brand/project name a bit */
+.navbar .brand {
+  padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+}
+
+/* Navbar links: increase padding for taller navbar */
+.navbar .nav > li > a {
+  padding: 15px 20px;
+}
+
+/* Offset the responsive button for proper vertical alignment */
+.navbar .btn-navbar {
+  margin-top: 10px;
+}
+
+
+footer
+{
+	background:#2d2d2d;
+	padding:10px 0px;
+}
+.navbar-brand
+{
+	float:left;
+}
+.footer_text
+{
+	float:left;
+	font-size:11px;
+	margin:0px;
+	color:#fff;
+	margin-top:4px;
+}
+.footer_text a
+{
+	color:#fff;
+}
+.footer_text a:hover
+{
+	text-decoration:underline;
+	color:#fff;
+}
+.news_subscribe
+{
+	float: left;
+    margin-left: 21%;
+    width: 37%;
+}
+.news_subscribe .news_field
+{
+	float:none;
+	width:96%;
+	height:12px;
+	font-size:11px;
+	margin:0px;
+	padding:5px;
+	border-radius:0px;
+}
+.green_butn
+{
+	background:#1c6540;
+	padding:5px;
+	border:none;
+	font-size:11px;
+	color:#fff;
+}
+.copyright
+{
+	color: #FFFFFF;
+    float: right;
+    font-size: 11px;
+    margin-bottom: 0;
+    margin-top: 4px;
+}
+.fb_icons
+{
+	background: none repeat scroll 0 0 #001408;
+    height: 78px;
+    padding: 5px;
+	padding-right:2px;
+    position: absolute;
+    right: 0;
+    top: 42px;
+    width: 36px;
+    z-index: 9;
+}
+.facebook
+{
+	float:left;
+	width:35px;
+	height:35px;
+	margin-bottom:10px;
+	background:url(../img/fb.png) no-repeat;
+}
+.twitter
+{
+	float:left;
+	width:35px;
+	height:35px;
+	background:url(../img/t.png) no-repeat;
+}
+
+.fb_icons a img
+{
+	float:left;
+	width:35px;
+	margin-bottom:10px;
+}
+.nav-collapse .nav_none
+{
+	display:none !important; 
+}
+.fRight {
+float:right;
+}
+
